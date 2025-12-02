@@ -150,3 +150,45 @@ if (rentForm && incomeInput && rentResult) {
     }
   });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  const tabButtons = Array.from(document.querySelectorAll('.tab-button'));
+  const tabPanels = Array.from(document.querySelectorAll('.tab-panel'));
+
+  function activateTab(button) {
+    tabButtons.forEach(b => {
+      const active = b === button;
+      b.classList.toggle('active', active);
+      b.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+
+    tabPanels.forEach(panel => {
+      const shouldShow = button.getAttribute('aria-controls') === panel.id;
+      if (shouldShow) panel.removeAttribute('hidden');
+      else panel.setAttribute('hidden', '');
+    });
+
+    // optional: ensure content visible on small screens
+    if (window.innerWidth < 700) {
+      document.querySelector('.tab-panels')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  tabButtons.forEach(btn => {
+    btn.addEventListener('click', () => activateTab(btn));
+    btn.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+        e.preventDefault();
+        const idx = tabButtons.indexOf(btn);
+        const dir = e.key === 'ArrowRight' ? 1 : -1;
+        const next = tabButtons[(idx + dir + tabButtons.length) % tabButtons.length];
+        next.focus();
+        activateTab(next);
+      }
+    });
+  });
+
+  // initialize first tab if none active
+  const initial = document.querySelector('.tab-button.active') || tabButtons[0];
+  if (initial) activateTab(initial);
+});

@@ -45,7 +45,7 @@
     </div>
     <img
       class="hero-img"
-      src="https://images.unsplash.com/photo-1564326230265-68c905f1a8fe?auto=format&fit=crop&w=1000&q=80"
+      src="img/mexicocity.png"
       alt="Aerial view of Mexico City neighborhood"
     />
   </section>
@@ -74,41 +74,61 @@
   <!-- GLOBAL MEDIA -->
   <section id="media" class="section alt reveal">
     <h2>Global Media & Urban Desire</h2>
+
+    <!-- Intro text -->
     <p>
-      Articles from <strong>BBC News</strong>, <strong>AP News</strong> and <strong>Vox</strong> show how Mexico City and Oaxaca are framed as
-      “creative, colorful, Instagrammable” destinations. Travel vlogs, TikToks and Instagram posts sell an image of
-      safe, aesthetic, affordable neighborhoods for outsiders.
-    </p>
-    <p>
-      This media visibility increases <strong>desirability</strong>, which increases demand – and with it, rents and property values.
-      Social media does not create gentrification alone, but it accelerates it by branding entire neighborhoods as
-      global products.
+      Articles and short-form media frame Mexico City and Oaxaca as creative, colorful and “Instagrammable”
+      destinations. These images amplify desirability and can accelerate rent pressure, tourism and neighborhood change.
     </p>
 
-    <div class="two-col">
-      <div>
-        <h3>Media Mechanisms</h3>
-        <ul class="bullet-list">
-          <li>“Best neighborhood” lists and lifestyle city guides.</li>
-          <li>Influencers promoting cafés, rooftops, murals and “hidden gems.”</li>
-          <li>Hashtags that turn streets into Instagram landmarks.</li>
-        </ul>
+    <!-- Tabs -->
+    <div class="tabs-section" aria-label="Media tabs">
+      <div class="tab-buttons" role="tablist">
+        <button class="tab-button active" role="tab" aria-selected="true" aria-controls="tab-media-examples" id="btn-media-examples">Media Examples</button>
+        <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-media-mechanisms" id="btn-media-mechanisms">Media Mechanisms</button>
+        <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-on-the-ground" id="btn-on-the-ground">On the Ground</button>
       </div>
-      <div>
-        <h3>On the Ground</h3>
-        <ul class="bullet-list">
-          <li>More short-term rentals and boutique hotels.</li>
-          <li>Shift from local markets to tourist-oriented businesses.</li>
-          <li>New class and language boundaries (English menus, dollar prices).</li>
-        </ul>
-      </div>
-    </div>
 
-    <div class="video-container">
-      <video controls>
-        <source src="https://cdn.coverr.co/videos/coverr-mexico-city-aerial-sunrise-3683/1080p.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+      <div class="tab-panels">
+        <div class="tab-panel" id="tab-media-examples" role="tabpanel" aria-labelledby="btn-media-examples">
+          <h3>How TikTok & Instagram Shape Urban Desire</h3>
+          <p>
+            Short-form video and curated photo tours amplify images of neighborhoods — emphasizing cafés, murals and
+            “authentic” moments. These images increase desirability and can accelerate rent pressure and tourism-driven change.
+          </p>
+
+          <!-- personal local video (replace the YouTube embed) -->
+          <div class="personal-video-section" aria-hidden="false">
+            <div class="personal-video-container">
+              <video class="personal-video" controls playsinline preload="metadata">
+                <source src="videos/mi-video.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <p class="video-note" style="margin-top:0.6rem;font-size:0.95rem;color:#555;">
+              Local video: videos/mi-video.mp4 — add your file into /workspaces/GentrificacionMedia/videos/
+            </p>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="tab-media-mechanisms" role="tabpanel" aria-labelledby="btn-media-mechanisms" hidden>
+          <h3>Media Mechanisms</h3>
+          <ul class="bullet-list">
+            <li>“Best neighborhood” lists and lifestyle city guides that rebrand places.</li>
+            <li>Influencers promoting cafés, rooftops, murals and “hidden gems.”</li>
+            <li>Hashtags that turn streets into Instagram landmarks.</li>
+          </ul>
+        </div>
+
+        <div class="tab-panel" id="tab-on-the-ground" role="tabpanel" aria-labelledby="btn-on-the-ground" hidden>
+          <h3>On the Ground</h3>
+          <ul class="bullet-list">
+            <li>More short-term rentals and boutique hotels.</li>
+            <li>Shift from local markets to tourist-oriented businesses.</li>
+            <li>New class and language boundaries (English menus, dollar prices).</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 

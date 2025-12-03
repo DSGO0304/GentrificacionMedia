@@ -1,194 +1,130 @@
-// Reveal sections on scroll
-const reveals = document.querySelectorAll(".reveal");
+document.addEventListener("DOMContentLoaded", () => {
+  // ========== 1. TABS EN GLOBAL MEDIA ==========
 
-const observer = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
+  const tabButtons = document.querySelectorAll(".tab-button");
+  const tabPanels = document.querySelectorAll(".tab-panel");
 
-        // Inicializar gráficas de barras si la sección las contiene
-        const charts = entry.target.querySelectorAll(".bar-chart");
-        charts.forEach(initBarChart);
-      }
-    });
-  },
-  {
-    threshold: 0.12
-  }
-);
-
-// Observar todas las secciones .reveal
-reveals.forEach(el => observer.observe(el));
-
-/**
- * Inicializa una gráfica de barras:
- * - Encuentra el valor máximo
- * - Escala cada barra a un porcentaje de altura
- */
-function initBarChart(chart) {
-  if (chart.dataset.ready === "true") return;
-
-  const bars = chart.querySelectorAll(".bar");
-  let max = 0;
-
-  bars.forEach(bar => {
-    const val = Number(bar.dataset.value) || 0;
-    if (val > max) max = val;
-  });
-
-  bars.forEach(bar => {
-    const val = Number(bar.dataset.value) || 0;
-    const heightPercent = max > 0 ? (val / max) * 100 : 0;
-    bar.style.height = heightPercent + "%";
-  });
-
-  chart.dataset.ready = "true";
-}
-
-// Smooth scroll for nav links
-document.querySelectorAll(".nav-links a").forEach(link => {
-  link.addEventListener("click", e => {
-    e.preventDefault();
-    const href = link.getAttribute("href");
-    const target = document.querySelector(href);
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth" });
-    }
-  });
-});
-
-// MAP INTERACTIVO SENCILLO
-const mapPins = document.querySelectorAll(".map-pin");
-const mapTitle = document.getElementById("map-area-title");
-const mapList = document.getElementById("map-area-points");
-
-if (mapPins && mapTitle && mapList) {
-  mapPins.forEach(pin => {
-    pin.addEventListener("click", () => {
-      const name = pin.dataset.name || "Neighborhood";
-      const pointsRaw = pin.dataset.points || "";
-      const pointsArr = pointsRaw.split("|").map(p => p.trim()).filter(p => p.length > 0);
-
-      // Actualizar título
-      mapTitle.textContent = name;
-
-      // Actualizar lista
-      mapList.innerHTML = "";
-      pointsArr.forEach(p => {
-        const li = document.createElement("li");
-        li.textContent = p;
-        mapList.appendChild(li);
+  tabButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      tabButtons.forEach((b) => {
+        b.classList.remove("active");
+        b.setAttribute("aria-selected", "false");
       });
 
-      // Pequeño feedback visual
-      mapPins.forEach(p => p.classList.remove("active-pin"));
-      pin.classList.add("active-pin");
+      tabPanels.forEach((panel) => {
+        panel.hidden = true;
+      });
+
+      btn.classList.add("active");
+      btn.setAttribute("aria-selected", "true");
+
+      const panelId = btn.getAttribute("aria-controls");
+      const panel = document.getElementById(panelId);
+      if (panel) panel.hidden = false;
     });
   });
-}
 
-// BEFORE / AFTER SLIDERS
-const baBlocks = document.querySelectorAll(".before-after");
+  // ========== 2. REVEAL ON SCROLL ==========
+  const revealElements = document.querySelectorAll(".reveal");
 
-baBlocks.forEach(block => {
-  const slider = block.querySelector(".ba-slider");
-  const overlay = block.querySelector(".ba-overlay");
-  const divider = block.querySelector(".ba-divider");
+  if ("IntersectionObserver" in window) {
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.18 }
+    );
 
-  if (!slider || !overlay || !divider) return;
-
-  const updateSlider = () => {
-    const value = Number(slider.value);
-    overlay.style.width = value + "%";
-    divider.style.left = value + "%";
-  };
-
-  slider.addEventListener("input", updateSlider);
-  // Inicializar posición
-  updateSlider();
-});
-
-// RENT CALCULATOR
-const rentForm = document.getElementById("rent-form");
-const incomeInput = document.getElementById("income-input");
-const rentResult = document.getElementById("rent-result");
-
-if (rentForm && incomeInput && rentResult) {
-  rentForm.addEventListener("submit", e => {
-    e.preventDefault();
-
-    const income = Number(incomeInput.value);
-    if (!income || income <= 0) {
-      rentResult.textContent = "Please enter a valid monthly income.";
-      return;
-    }
-
-    // Regla 30% ingreso -> renta máxima
-    const maxRent = income * 0.3;
-
-    // Renta aproximada por zona (MXN)
-    const areas = [
-      { name: "Iztapalapa", rent: 11000 },
-      { name: "Centro", rent: 18000 },
-      { name: "CDMX average", rent: 21000 },
-      { name: "Roma Norte", rent: 29100 },
-      { name: "Condesa", rent: 30071 },
-      { name: "Polanco", rent: 42000 }
-    ];
-
-    const affordable = areas.filter(a => maxRent >= a.rent).map(a => a.name);
-
-    if (affordable.length === 0) {
-      rentResult.textContent =
-        "With this income, even 30% is not enough to comfortably afford rents in the central areas shown in the graphs.";
-    } else {
-      rentResult.textContent =
-        "With this income, spending around 30% on rent, you could potentially afford: " +
-        affordable.join(", ") +
-        ".";
-    }
-  });
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  const tabButtons = Array.from(document.querySelectorAll('.tab-button'));
-  const tabPanels = Array.from(document.querySelectorAll('.tab-panel'));
-
-  function activateTab(button) {
-    tabButtons.forEach(b => {
-      const active = b === button;
-      b.classList.toggle('active', active);
-      b.setAttribute('aria-selected', active ? 'true' : 'false');
-    });
-
-    tabPanels.forEach(panel => {
-      const shouldShow = button.getAttribute('aria-controls') === panel.id;
-      if (shouldShow) panel.removeAttribute('hidden');
-      else panel.setAttribute('hidden', '');
-    });
-
-    // optional: ensure content visible on small screens
-    if (window.innerWidth < 700) {
-      document.querySelector('.tab-panels')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    revealElements.forEach((el) => revealObserver.observe(el));
+  } else {
+    revealElements.forEach((el) => el.classList.add("visible"));
   }
 
-  tabButtons.forEach(btn => {
-    btn.addEventListener('click', () => activateTab(btn));
-    btn.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
-        e.preventDefault();
-        const idx = tabButtons.indexOf(btn);
-        const dir = e.key === 'ArrowRight' ? 1 : -1;
-        const next = tabButtons[(idx + dir + tabButtons.length) % tabButtons.length];
-        next.focus();
-        activateTab(next);
+  // ========== 3. GRAFICAS: CREAR BARRAS Y ANIMARLAS ==========
+
+  const charts = document.querySelectorAll(".bar-chart");
+
+  charts.forEach((chart) => {
+    const bars = chart.querySelectorAll(".bar");
+    const values = [];
+
+    bars.forEach((bar) => {
+      const raw = bar.getAttribute("data-value");
+      const value = raw ? parseFloat(raw) : 0;
+      values.push(value);
+    });
+
+    const maxValue = Math.max(...values, 1);
+
+    bars.forEach((bar, index) => {
+      const value = values[index];
+
+      // Crear el relleno visual
+      let fill = bar.querySelector(".bar-fill");
+      if (!fill) {
+        fill = document.createElement("div");
+        fill.className = "bar-fill";
+        bar.appendChild(fill);
       }
+
+      // Etiqueta de abajo
+      let labelEl = bar.querySelector(".bar-label");
+      if (!labelEl) {
+        labelEl = document.createElement("div");
+        labelEl.className = "bar-label";
+        labelEl.textContent = bar.getAttribute("data-label") || "";
+        bar.appendChild(labelEl);
+      }
+
+      // Asegurar que existe span.bar-value
+      let valueSpan = bar.querySelector(".bar-value");
+      if (!valueSpan) {
+        valueSpan = document.createElement("span");
+        valueSpan.className = "bar-value";
+        valueSpan.textContent = value.toString();
+        bar.appendChild(valueSpan);
+      } else {
+        valueSpan.textContent = value.toString();
+      }
+
+      // Calcular altura relativa (máx 70% del alto)
+      const percent = (value / maxValue) * 70;
+      bar.style.setProperty("--bar-height", `${percent}%`);
     });
   });
 
-  // initialize first tab if none active
-  const initial = document.querySelector('.tab-button.active') || tabButtons[0];
-  if (initial) activateTab(initial);
+  // Observer para animar cuando entran al viewport
+  if ("IntersectionObserver" in window) {
+    const chartObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-bars");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    charts.forEach((chart) => chartObserver.observe(chart));
+  } else {
+    charts.forEach((chart) => chart.classList.add("animate-bars"));
+  }
+
+  // (Opcional) Click en barra = log en consola
+  charts.forEach((chart) => {
+    chart.querySelectorAll(".bar").forEach((bar) => {
+      bar.addEventListener("click", () => {
+        const label = bar.getAttribute("data-label");
+        const valueText = bar.querySelector(".bar-value")?.innerText || "";
+        console.log(`Bar clicked: ${label} → ${valueText}`);
+      });
+    });
+  });
 });

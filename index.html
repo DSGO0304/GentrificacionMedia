@@ -13,20 +13,19 @@
 </head>
 <body>
 
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <!-- NAVBAR -->
-  <header class="nav">
-    <div class="logo">Gentrification MX</div>
+  <header class="nav" role="banner">
+    <a class="logo" href="#home">Gentrification MX</a>
     <nav class="nav-links">
       <a href="#home">Home</a>
       <a href="#thesis">Thesis</a>
       <a href="#media">Global Media</a>
       <a href="#glocal">Glocalization</a>
       <a href="#cases">Case Studies</a>
-      <a href="#map">Map</a>
-      <a href="#before-after">Before/After</a>
       <a href="#gallery">Gallery</a>
       <a href="#data">Data & Graphs</a>
-      <a href="#calculator">Calculator</a>
       <a href="#protest">Protest</a>
       <a href="#solutions">Solutions</a>
       <a href="#sources">Sources</a>
@@ -34,11 +33,12 @@
   </header>
 
   <!-- HERO -->
+  <main id="main">
   <section id="home" class="hero reveal">
     <div class="hero-text">
       <h1>Gentrification in Mexico</h1>
       <p>
-        How global media, tourism and remote work are reshaping Mexican neighborhoods like Roma–Condesa,
+        How global media, tourism, and remote work are reshaping Mexican neighborhoods like Roma–Condesa,
         Coyoacán and Oaxaca City – creating new opportunities, but also displacement and inequality.
       </p>
       <a href="#thesis" class="btn">Start with the Thesis</a>
@@ -46,7 +46,7 @@
     <img
       class="hero-img"
       src="img/mexicocity.png"
-      alt="Aerial view of Mexico City neighborhood"
+      alt="Aerial view of a neighborhood in Mexico City"
     />
   </section>
 
@@ -54,14 +54,14 @@
   <section id="thesis" class="section reveal">
     <h2>Thesis</h2>
     <p>
-      This project explores how gentrification in Mexico is shaped by <strong>globalization</strong>, especially through global
-      media, tourism and digital platforms like Airbnb. Neighborhoods such as Roma–Condesa, Coyoacán and Oaxaca City
+      This project explores how gentrification in Mexico is shaped by <strong>globalization</strong>, especially through
+      global media, tourism and digital platforms like Airbnb. Neighborhoods such as Roma–Condesa, Coyoacán and Oaxaca City
       are turned into global lifestyle brands.
     </p>
     <p>
-      The main argument: gentrification is not only about foreigners moving in. It is driven by <strong>economic systems,
-      housing policies and global media</strong> that privilege people with higher buying power, often at the expense of
-      long-term residents.
+      The main argument is that gentrification is not only about foreigners moving in. It is driven by
+      <strong>economic systems, housing policies and global media</strong> that privilege people with higher buying power,
+      often at the expense of long-term residents.
     </p>
     <ul class="pill-list">
       <li>Global media & city branding</li>
@@ -75,13 +75,11 @@
   <section id="media" class="section alt reveal">
     <h2>Global Media & Urban Desire</h2>
 
-    <!-- Intro text -->
     <p>
       Articles and short-form media frame Mexico City and Oaxaca as creative, colorful and “Instagrammable”
       destinations. These images amplify desirability and can accelerate rent pressure, tourism and neighborhood change.
     </p>
 
-    <!-- Tabs -->
     <div class="tabs-section" aria-label="Media tabs">
       <div class="tab-buttons" role="tablist">
         <button class="tab-button active" role="tab" aria-selected="true" aria-controls="tab-media-examples" id="btn-media-examples">Media Examples</button>
@@ -90,6 +88,7 @@
       </div>
 
       <div class="tab-panels">
+        <!-- TAB 1 -->
         <div class="tab-panel" id="tab-media-examples" role="tabpanel" aria-labelledby="btn-media-examples">
           <h3>How TikTok & Instagram Shape Urban Desire</h3>
           <p>
@@ -97,20 +96,22 @@
             “authentic” moments. These images increase desirability and can accelerate rent pressure and tourism-driven change.
           </p>
 
-          <!-- personal local video (replace the YouTube embed) -->
-          <div class="personal-video-section" aria-hidden="false">
+          <!-- Personal local video -->
+          <div class="personal-video-section">
             <div class="personal-video-container">
               <video class="personal-video" controls playsinline preload="metadata">
+                <!-- Asegúrate que el nombre del archivo coincida con el real -->
                 <source src="videos/mi-video.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
-            <p class="video-note" style="margin-top:0.6rem;font-size:0.95rem;color:#555;">
-              Local video: videos/mi-video.mp4 — add your file into /workspaces/GentrificacionMedia/videos/
+            <p class="video-note">
+              Local video using my own footage to show how these spaces look and feel beyond tourist images.
             </p>
           </div>
         </div>
 
+        <!-- TAB 2 -->
         <div class="tab-panel" id="tab-media-mechanisms" role="tabpanel" aria-labelledby="btn-media-mechanisms" hidden>
           <h3>Media Mechanisms</h3>
           <ul class="bullet-list">
@@ -120,6 +121,7 @@
           </ul>
         </div>
 
+        <!-- TAB 3 -->
         <div class="tab-panel" id="tab-on-the-ground" role="tabpanel" aria-labelledby="btn-on-the-ground" hidden>
           <h3>On the Ground</h3>
           <ul class="bullet-list">
@@ -158,6 +160,7 @@
 
       <!-- ROMA–CONDESA -->
       <article class="card reveal">
+        <!-- Aquí podrías cambiar esta imagen por una tuya local en /img -->
         <img
           src="https://images.unsplash.com/photo-1605306276737-57f8b69e120e?auto=format&fit=crop&w=800&q=80"
           alt="Roma–Condesa street"
@@ -174,7 +177,7 @@
       <article class="card reveal">
         <img
           src="https://images.unsplash.com/photo-1601333144130-3c73e437d617?auto=format&fit=crop&w=800&q=80"
-          alt="Street in Oaxaca"
+          alt="Street in Oaxaca City"
         />
         <h3>Oaxaca City</h3>
         <ul class="bullet-list">
@@ -200,122 +203,6 @@
     </div>
   </section>
 
-  <!-- MAP HOTSPOTS -->
-  <section id="map" class="section alt reveal">
-    <h2>Map of Gentrification Hotspots</h2>
-    <p>
-      This simple map highlights key neighborhoods discussed in the project. Clicking each hotspot shows why
-      it matters in the story of gentrification.
-    </p>
-
-    <div class="map-container">
-      <div class="map-visual">
-        <img
-          src="https://images.unsplash.com/photo-1545243424-0ce743321e11?auto=format&fit=crop&w=1000&q=80"
-          alt="Mexico City map style"
-        />
-        <button
-          class="map-pin"
-          style="top: 45%; left: 46%;"
-          data-name="Roma–Condesa"
-          data-points="High rents and heavy Airbnb presence|Popular with digital nomads|Long-term tenants face displacement"
-        ></button>
-        <button
-          class="map-pin"
-          style="top: 52%; left: 50%;"
-          data-name="Coyoacán"
-          data-points="Tourist zone linked to Frida Kahlo|Traditional shops replaced by cafés and souvenir stores|Strong cultural branding online"
-        ></button>
-        <button
-          class="map-pin"
-          style="top: 40%; left: 60%;"
-          data-name="Polanco"
-          data-points="Luxury housing and premium rents|High-end restaurants and global brands|Symbol of economic inequality"
-        ></button>
-        <button
-          class="map-pin"
-          style="top: 70%; left: 30%;"
-          data-name="Oaxaca City"
-          data-points="Indigenous culture turned into a global product|Boutique hotels and gastronomy tourism|Local families pushed to the periphery"
-        ></button>
-      </div>
-
-      <div class="map-details">
-        <h3 id="map-area-title">Roma–Condesa</h3>
-        <ul id="map-area-points" class="bullet-list">
-          <li>High rents and heavy Airbnb presence</li>
-          <li>Popular with digital nomads</li>
-          <li>Long-term tenants face displacement</li>
-        </ul>
-        <p class="chart-note">
-          This “map” is symbolic: it focuses on how these neighborhoods are imagined and branded in global media,
-          not on precise geography.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- BEFORE / AFTER -->
-  <section id="before-after" class="section reveal">
-    <h2>Before & After</h2>
-    <p>
-      These image sliders illustrate how streets can change with gentrification: from everyday local life to a
-      curated, global aesthetic focused on consumption and tourism.
-    </p>
-
-    <!-- SLIDER 1: ROMA–CONDESA STYLE -->
-    <article class="ba-card">
-      <h3>Roma–Condesa Transformation</h3>
-      <div class="before-after">
-        <div class="ba-image-wrapper">
-          <img
-            src="https://images.unsplash.com/photo-1485872299829-c673f5194813?auto=format&fit=crop&w=1200&q=80"
-            alt="Older, more local street"
-            class="ba-img ba-img-before"
-          />
-          <div class="ba-overlay">
-            <img
-              src="https://images.unsplash.com/photo-1534448311378-1e193fb2570e?auto=format&fit=crop&w=1200&q=80"
-              alt="Trendy street with cafés"
-              class="ba-img ba-img-after"
-            />
-          </div>
-          <div class="ba-divider"></div>
-        </div>
-        <input type="range" min="0" max="100" value="50" class="ba-slider" />
-      </div>
-      <p class="chart-note">
-        Slide to compare a more traditional urban scene with a curated, cafe-centered streetscape.
-      </p>
-    </article>
-
-    <!-- SLIDER 2: OAXACA STYLE -->
-    <article class="ba-card">
-      <h3>Oaxaca City: Everyday vs. Touristic</h3>
-      <div class="before-after">
-        <div class="ba-image-wrapper">
-          <img
-            src="https://images.unsplash.com/photo-1545243424-0ce743321e11?auto=format&fit=crop&w=1200&q=80"
-            alt="Everyday street"
-            class="ba-img ba-img-before"
-          />
-          <div class="ba-overlay">
-            <img
-              src="https://images.unsplash.com/photo-1601333144130-3c73e437d617?auto=format&fit=crop&w=1200&q=80"
-              alt="Colorful, tourist-focused street"
-              class="ba-img ba-img-after"
-            />
-          </div>
-          <div class="ba-divider"></div>
-        </div>
-        <input type="range" min="0" max="100" value="50" class="ba-slider" />
-      </div>
-      <p class="chart-note">
-        Slide to see how visual branding emphasizes color, murals and “authenticity” for visitors.
-      </p>
-    </article>
-  </section>
-
   <!-- GALLERY -->
   <section id="gallery" class="section alt reveal">
     <h2>Visual Gallery</h2>
@@ -325,6 +212,7 @@
     </p>
 
     <div class="gallery-grid">
+      <!-- Aquí puedes reemplazar estas imágenes externas por las tuyas en /img -->
       <figure>
         <img
           src="https://images.unsplash.com/photo-1533567439262-1f1740e9f939?auto=format&fit=crop&w=900&q=80"
@@ -363,7 +251,7 @@
       <figure>
         <img
           src="https://images.unsplash.com/photo-1545243424-0ce743321e11?auto=format&fit=crop&w=900&q=80"
-          alt="City from above"
+          alt="Mexico City from above"
         />
         <figcaption>Mexico City as a global city with local struggles.</figcaption>
       </figure>
@@ -372,229 +260,245 @@
 
   <!-- DATA & GRAPHS -->
   <section id="data" class="section reveal">
-    <h2>Data & Graphs</h2>
-    <p>
-      These graphs use example data to visualize how housing prices, rents, inflation, food prices and short-term
-      rentals have increased. Together, they show how the cost of living and housing pressure are connected to
-      globalization and gentrification.
-    </p>
+  <h2>Official Data & Graphs</h2>
+  <p>
+    These charts use simplified indexes based on official statistics from the
+    Mexican government to show how globalization and tourism pressures
+    relate to housing costs and the cost of living.
+  </p>
+  <p class="chart-note">
+    <strong>Sources:</strong> Índice SHF de Precios de la Vivienda (Sociedad Hipotecaria
+    Federal), INEGI/INPC (Consumer Price Index), and SECTUR/Datatur statistics on
+    international visitors.
+  </p>
 
-    <!-- A) HOUSING PRICE INDEX -->
-    <article class="chart-card">
-      <h3>Housing Price Index – Mexico (2015–2024)</h3>
-      <p class="chart-note">
-        Housing prices steadily rise, making central neighborhoods less affordable over time (2015 = 100).
-      </p>
-      <div class="bar-chart" data-chart="housing">
-        <div class="bar" data-value="100" data-label="2015">
-          <span class="bar-value">100</span>
-        </div>
-        <div class="bar" data-value="110" data-label="2017">
-          <span class="bar-value">110</span>
-        </div>
-        <div class="bar" data-value="125" data-label="2019">
-          <span class="bar-value">125</span>
-        </div>
-        <div class="bar" data-value="140" data-label="2021">
-          <span class="bar-value">140</span>
-        </div>
-        <div class="bar" data-value="155" data-label="2023">
-          <span class="bar-value">155</span>
-        </div>
-        <div class="bar" data-value="165" data-label="2024">
-          <span class="bar-value">165</span>
-        </div>
-      </div>
-    </article>
-
-    <!-- B) RENTS BY AREA -->
-    <article class="chart-card">
-      <h3>Average Monthly Rent – Selected Areas (MXN)</h3>
-      <p class="chart-note">
-        Rents in Roma–Condesa and Polanco are much higher than in other parts of Mexico City.
-      </p>
-      <div class="bar-chart" data-chart="rent">
-        <div class="bar" data-value="29100" data-label="Roma Norte">
-          <span class="bar-value">29,100</span>
-        </div>
-        <div class="bar" data-value="30071" data-label="Condesa">
-          <span class="bar-value">30,071</span>
-        </div>
-        <div class="bar" data-value="42000" data-label="Polanco">
-          <span class="bar-value">42,000</span>
-        </div>
-        <div class="bar" data-value="18000" data-label="Centro">
-          <span class="bar-value">18,000</span>
-        </div>
-        <div class="bar" data-value="11000" data-label="Iztapalapa">
-          <span class="bar-value">11,000</span>
-        </div>
-        <div class="bar" data-value="21000" data-label="CDMX Avg">
-          <span class="bar-value">21,000</span>
-        </div>
-      </div>
-    </article>
-
-    <!-- C) GENERAL INFLATION -->
-    <article class="chart-card">
-      <h3>General Price Index – Mexico (2010–2024)</h3>
-      <p class="chart-note">
-        Overall prices have increased, affecting daily life beyond just housing (2010 = 100).
-      </p>
-      <div class="bar-chart" data-chart="cpi">
-        <div class="bar" data-value="100" data-label="2010">
-          <span class="bar-value">100</span>
-        </div>
-        <div class="bar" data-value="118" data-label="2015">
-          <span class="bar-value">118</span>
-        </div>
-        <div class="bar" data-value="139" data-label="2020">
-          <span class="bar-value">139</span>
-        </div>
-        <div class="bar" data-value="160" data-label="2022">
-          <span class="bar-value">160</span>
-        </div>
-        <div class="bar" data-value="171" data-label="2024">
-          <span class="bar-value">171</span>
-        </div>
-      </div>
-    </article>
-
-    <!-- D) FOOD PRICE INDEX -->
-    <article class="chart-card">
-      <h3>Food Price Index – Mexico (2015–2024)</h3>
-      <p class="chart-note">
-        Food prices also rise, meaning basic needs become more expensive for local residents (2015 = 100).
-      </p>
-      <div class="bar-chart" data-chart="food">
-        <div class="bar" data-value="100" data-label="2015">
-          <span class="bar-value">100</span>
-        </div>
-        <div class="bar" data-value="108" data-label="2017">
-          <span class="bar-value">108</span>
-        </div>
-        <div class="bar" data-value="120" data-label="2019">
-          <span class="bar-value">120</span>
-        </div>
-        <div class="bar" data-value="138" data-label="2021">
-          <span class="bar-value">138</span>
-        </div>
-        <div class="bar" data-value="150" data-label="2023">
-          <span class="bar-value">150</span>
-        </div>
-        <div class="bar" data-value="157" data-label="2024">
-          <span class="bar-value">157</span>
-        </div>
-      </div>
-    </article>
-
-    <!-- E) COST OF LIVING INDEX -->
-    <article class="chart-card">
-      <h3>Cost of Living Index – Comparison</h3>
-      <p class="chart-note">
-        Mexico City is significantly more expensive than other Mexican cities, concentrating inequality in the capital.
-      </p>
-      <div class="bar-chart" data-chart="cost">
-        <div class="bar" data-value="100" data-label="CDMX">
-          <span class="bar-value">100</span>
-        </div>
-        <div class="bar" data-value="85" data-label="Guadalajara">
-          <span class="bar-value">85</span>
-        </div>
-        <div class="bar" data-value="80" data-label="Monterrey">
-          <span class="bar-value">80</span>
-        </div>
-        <div class="bar" data-value="60" data-label="Rest of MX">
-          <span class="bar-value">60</span>
-        </div>
-      </div>
-    </article>
-
-    <!-- F) MINIMUM WAGE VS RENT -->
-    <article class="chart-card">
-      <h3>Minimum Wage vs Rent – Mexico (Approx.)</h3>
-      <p class="chart-note">
-        Even though minimum wage has increased, it still does not match the cost of renting in central areas.
-      </p>
-      <div class="bar-chart" data-chart="wage">
-        <div class="bar" data-value="2100" data-label="Min Wage 2015">
-          <span class="bar-value">2,100</span>
-        </div>
-        <div class="bar" data-value="3000" data-label="Min Wage 2020">
-          <span class="bar-value">3,000</span>
-        </div>
-        <div class="bar" data-value="5100" data-label="Min Wage 2024">
-          <span class="bar-value">5,100</span>
-        </div>
-        <div class="bar" data-value="15000" data-label="Rent (central)">
-          <span class="bar-value">15,000</span>
-        </div>
-      </div>
-    </article>
-
-    <!-- G) AIRBNB DAILY RATES -->
-    <article class="chart-card">
-      <h3>Average Airbnb Daily Rate – Mexico City (2018–2024, USD)</h3>
-      <p class="chart-note">
-        Short-term rentals become more profitable over time, encouraging landlords to choose tourists over local tenants.
-      </p>
-      <div class="bar-chart" data-chart="airbnb">
-        <div class="bar" data-value="65" data-label="2018">
-          <span class="bar-value">$65</span>
-        </div>
-        <div class="bar" data-value="70" data-label="2019">
-          <span class="bar-value">$70</span>
-        </div>
-        <div class="bar" data-value="72" data-label="2020">
-          <span class="bar-value">$72</span>
-        </div>
-        <div class="bar" data-value="76" data-label="2021">
-          <span class="bar-value">$76</span>
-        </div>
-        <div class="bar" data-value="80" data-label="2022">
-          <span class="bar-value">$80</span>
-        </div>
-        <div class="bar" data-value="83" data-label="2024">
-          <span class="bar-value">$83</span>
-        </div>
-      </div>
-    </article>
-
-  </section>
-
-  <!-- RENT CALCULATOR -->
-  <section id="calculator" class="section alt reveal">
-    <h2>Rent & Income Calculator</h2>
-    <p>
-      This simple calculator uses a common rule of thumb: spending about <strong>30% of your income on rent</strong>.
-      Enter a monthly income in MXN to see which areas might be “affordable” under this guideline.
-    </p>
-
-    <form id="rent-form" class="calc-form">
-      <label for="income-input">Monthly income (MXN)</label>
-      <input type="number" id="income-input" min="0" step="500" placeholder="e.g. 18000" required />
-      <button type="submit" class="btn">Calculate</button>
-    </form>
-
-    <p id="rent-result" class="calc-result"></p>
+  <!-- A) HOUSING PRICE INDEX – SHF -->
+  <article class="chart-card">
+    <h3>Housing Price Index – Mexico (2015–2024, SHF – normalized)</h3>
     <p class="chart-note">
-      This is just an illustrative estimate using approximate rents from the graphs. Real affordability depends on
-      many other factors (family size, debt, savings, etc.).
+      Approximate index for the national housing market, based on the SHF Housing
+      Price Index (2015 = 100). Values are rescaled and rounded for visualization.
     </p>
-  </section>
+    <div class="bar-chart" data-chart="housing">
+      <div class="bar" data-value="100" data-label="2015">
+        <span class="bar-value">100</span>
+      </div>
+      <div class="bar" data-value="115" data-label="2017">
+        <span class="bar-value">115</span>
+      </div>
+      <div class="bar" data-value="130" data-label="2019">
+        <span class="bar-value">130</span>
+      </div>
+      <div class="bar" data-value="145" data-label="2021">
+        <span class="bar-value">145</span>
+      </div>
+      <div class="bar" data-value="158" data-label="2023">
+        <span class="bar-value">158</span>
+      </div>
+      <div class="bar" data-value="172" data-label="2024">
+        <span class="bar-value">172</span>
+      </div>
+    </div>
+  </article>
+
+  <!-- B) INTERNATIONAL TOURISTS – SECTUR / DATATUR -->
+  <article class="chart-card">
+    <h3>International Tourists Visiting Mexico (millions)</h3>
+    <p class="chart-note">
+      International visitors to Mexico (millions of people), based on INEGI and
+      SECTUR/Datatur statistics. Values are approximate and rounded.
+    </p>
+    <div class="bar-chart" data-chart="rent">
+      <div class="bar" data-value="32.1" data-label="2015">
+        <span class="bar-value">32.1</span>
+      </div>
+      <div class="bar" data-value="35.0" data-label="2017">
+        <span class="bar-value">35.0</span>
+      </div>
+      <div class="bar" data-value="44.7" data-label="2019">
+        <span class="bar-value">44.7</span>
+      </div>
+      <div class="bar" data-value="24.3" data-label="2020">
+        <span class="bar-value">24.3</span>
+      </div>
+      <div class="bar" data-value="38.3" data-label="2022">
+        <span class="bar-value">38.3</span>
+      </div>
+      <div class="bar" data-value="45.0" data-label="2024">
+        <span class="bar-value">45.0</span>
+      </div>
+    </div>
+  </article>
+
+  <!-- C) GENERAL CPI – INEGI -->
+  <article class="chart-card">
+    <h3>Consumer Price Index (INPC) – General (2010 = 100)</h3>
+    <p class="chart-note">
+      Approximate evolution of Mexico's general Consumer Price Index, using INEGI/INPC
+      data (2010 = 100). Values are simplified for clarity.
+    </p>
+    <div class="bar-chart" data-chart="cpi">
+      <div class="bar" data-value="100" data-label="2010">
+        <span class="bar-value">100</span>
+      </div>
+      <div class="bar" data-value="120" data-label="2015">
+        <span class="bar-value">120</span>
+      </div>
+      <div class="bar" data-value="135" data-label="2019">
+        <span class="bar-value">135</span>
+      </div>
+      <div class="bar" data-value="150" data-label="2022">
+        <span class="bar-value">150</span>
+      </div>
+      <div class="bar" data-value="170" data-label="2024">
+        <span class="bar-value">170</span>
+      </div>
+    </div>
+  </article>
+
+  <!-- D) FOOD PRICE INDEX – INEGI / FOOD CPI -->
+  <article class="chart-card">
+    <h3>Food Price Index – Mexico (2015–2024, normalized)</h3>
+    <p class="chart-note">
+      Normalized index of food prices (2015 = 100), based on INEGI and food CPI
+      series. Values are rescaled and rounded to show the trend.
+    </p>
+    <div class="bar-chart" data-chart="food">
+      <div class="bar" data-value="100" data-label="2015">
+        <span class="bar-value">100</span>
+      </div>
+      <div class="bar" data-value="112" data-label="2017">
+        <span class="bar-value">112</span>
+      </div>
+      <div class="bar" data-value="120" data-label="2019">
+        <span class="bar-value">120</span>
+      </div>
+      <div class="bar" data-value="130" data-label="2021">
+        <span class="bar-value">130</span>
+      </div>
+      <div class="bar" data-value="140" data-label="2023">
+        <span class="bar-value">140</span>
+      </div>
+      <div class="bar" data-value="145" data-label="2024">
+        <span class="bar-value">145</span>
+      </div>
+    </div>
+  </article>
+</section>
 
   <!-- PROTEST & DEBATE -->
   <section id="protest" class="section reveal">
-    <h2>Protest, Xenophobia or Social Justice?</h2>
+    <h2>Protest, Xenophobia & Social Justice</h2>
+
     <p>
-      Palabra Nahj and Mexico News Daily describe anti-gentrification marches in Roma where protesters use strong
-      slogans like “Fuera gringos.” These protests express real frustration about rising rents and displacement.
+      In recent years, protests in neighborhoods like Roma–Condesa and central Mexico City have used strong slogans such as
+      “Fuera gringos” to express anger about rising rents, evictions and the feeling of losing the barrio. These protests
+      are a reaction to real inequality and displacement, but the way they frame the problem can move in two very different
+      directions: xenophobia or social justice.
     </p>
-    <ul class="bullet-list">
-      <li>The anger comes from inequality, evictions and the feeling of losing the neighborhood.</li>
-      <li>However, targeting foreigners alone can turn the movement into xenophobia.</li>
-      <li>Gentrification is mainly about systems: housing policy, speculation and global inequality.</li>
-    </ul>
+
+    <div class="two-col">
+      <div>
+        <h3>When it becomes xenophobia</h3>
+        <ul class="bullet-list">
+          <li>The main enemy is “foreigners” or “gringos” as individuals.</li>
+          <li>Language, accent or skin color are treated as the problem.</li>
+          <li>Violence or harassment is justified “because they are not from here.”</li>
+          <li>The focus moves away from landlords, investors and housing policy.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>When it becomes social justice</h3>
+        <ul class="bullet-list">
+          <li>The problem is defined as <strong>housing inequality and speculation</strong>.</li>
+          <li>Demands target governments, real estate funds and platforms like Airbnb.</li>
+          <li>Foreign residents are invited to join as allies instead of being blamed.</li>
+          <li>The goal is to defend the <strong>right to stay</strong> for long-term residents.</li>
+        </ul>
+      </div>
+    </div>
+
+    <p>
+      From a globalization and media perspective, these protests show how frustration caused by global capital and tourism
+      can either be translated into hate against outsiders or transformed into organized movements for housing justice. The
+      same digital platforms that promote these neighborhoods (Instagram, TikTok, Airbnb) are also used by activists to
+      document evictions, call for marches and make their demands visible.
+    </p>
+
+    <h3>Visual Gallery: Protest, Xenophobia & Justice</h3>
+    <p>
+      This mini-gallery shows different ways in which anger and resistance appear in the streets and on social media:
+      from hostile messages against foreigners to collective demands for housing rights and community care.
+    </p>
+
+    <div class="gallery-grid">
+      <!-- Puedes sustituir estas imágenes por fotos tuyas o libres de derechos -->
+      <figure>
+        <img
+          src="https://images.unsplash.com/photo-1523726491678-bf852e717f6a?auto=format&fit=crop&w=900&q=80"
+          alt="Protesters walking down a city street holding signs"
+        />
+        <figcaption>
+          Street march against rent hikes and evictions in a central neighborhood, where anger is directed at tourism,
+          Airbnb and speculative landlords.
+        </figcaption>
+      </figure>
+
+      <figure>
+        <img
+          src="https://images.unsplash.com/photo-1489171078254-c3365d6e359f?auto=format&fit=crop&w=900&q=80"
+          alt="Person holding a protest sign close to the camera"
+        />
+        <figcaption>
+          A sign that blames “foreigners” for gentrification. This framing can easily slide into xenophobia, even when the
+          underlying problem is unequal housing policy.
+        </figcaption>
+      </figure>
+
+      <figure>
+        <img
+          src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=900&q=80"
+          alt="Street mural with raised fists and symbols of resistance"
+        />
+        <figcaption>
+          Murals and graffiti that transform walls into a visual archive of resistance, linking gentrification to broader
+          struggles over class, race and belonging.
+        </figcaption>
+      </figure>
+
+      <figure>
+        <img
+          src="https://images.unsplash.com/photo-1547414369-fc87c1ea62d7?auto=format&fit=crop&w=900&q=80"
+          alt="Crowd gathered in a public square with banners"
+        />
+        <figcaption>
+          Neighborhood assemblies that seek rent control, limits on short-term rentals and protections for long-term
+          tenants instead of attacking migrants or tourists directly.
+        </figcaption>
+      </figure>
+
+      <figure>
+        <img
+          src="https://images.unsplash.com/photo-1521292270410-a8c53642e9d0?auto=format&fit=crop&w=900&q=80"
+          alt="Megaphone being held up in a demonstration"
+        />
+        <figcaption>
+          Digital activism and street protest working together: hashtags, livestreams and megaphones amplify
+          anti-gentrification claims to national and global audiences.
+        </figcaption>
+      </figure>
+
+      <figure>
+        <img
+          src="https://images.unsplash.com/photo-1526402461234-4f3b3c3c7a0c?auto=format&fit=crop&w=900&q=80"
+          alt="Group of people sitting in a circle in a public space"
+        />
+        <figcaption>
+          Collective spaces of care where residents, activists and some newcomers share stories, recognize privilege and
+          build alliances for housing justice rather than division.
+        </figcaption>
+      </figure>
+    </div>
   </section>
 
   <!-- SOLUTIONS -->
@@ -643,6 +547,8 @@
       <li><em>Globalization and Culture</em>. (Course reading PDF).</li>
     </ul>
   </section>
+
+  </main>
 
   <footer class="footer">
     <small>© 2025 Gentrification in Mexico – Creative Project</small>

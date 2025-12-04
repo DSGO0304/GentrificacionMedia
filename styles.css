@@ -444,13 +444,23 @@ body {
 
 .bar-value {
   position: absolute;
-  bottom: calc(var(--height) + 2.1rem);
+  top: 0.6rem;          /* antes 0.3rem — más separación sobre el domo */
   left: 50%;
   transform: translateX(-50%);
-  font-size: 0.75rem;
+  font-size: 0.86rem;
+  font-weight: 600;
   color: #111827;
-  font-weight: 500;
   white-space: nowrap;
+}
+
+.bar-label {
+  position: absolute;
+  bottom: 0.45rem;      /* un poco más arriba que antes */
+  left: 50%;
+  transform: translateX(-50%);
+  color: #9ca3af;
+  font-size: 0.72rem;
+  text-align: center;
 }
 
 .bar::after {
@@ -636,6 +646,9 @@ body {
   background: linear-gradient(180deg, #f9fafb, #eef2ff);
   border: 1px solid #e5e7eb;
   overflow: hidden;
+
+  /* altura fija para que los % de --bar-height funcionen */
+  height: 220px;
 }
 
 /* Líneas suaves de fondo */
@@ -671,37 +684,17 @@ body {
   display: flex;
   align-items: flex-end;
   justify-content: center;
+
+  /* las barras ocupan la altura del chart para que .bar-fill % tenga referencia */
+  height: 100%;
 }
 
-/* Relleno de la barra (lo crea JS) */
+/* RELLENO: DOMO — altura ahora viene en línea (style="height: ..px") */
 .bar-fill {
-  width: 55%;
+  width: 62%;
+  background: #4b5563;
   border-radius: 999px 999px 0 0;
-  height: 0%; /* arranca en 0 para animación */
-  transition: height 0.8s ease-out;
-}
-
-/* Altura final, viene de la variable --bar-height */
-.bar-chart.animate-bars .bar-fill {
-  height: var(--bar-height, 40%);
-}
-
-/* Valor numérico encima */
-.bar-value {
-  position: absolute;
-  bottom: calc(var(--bar-height, 40%) + 1.4rem);
-  font-size: 0.8rem;
-  color: #111827;
-  white-space: nowrap;
-}
-
-/* Etiqueta bajo la barra */
-.bar-label {
-  position: absolute;
-  bottom: 0.1rem;
-  font-size: 0.78rem;
-  color: #6b7280;
-  text-align: center;
+  transition: height 0.6s ease-out;
 }
 
 /* Colores por tipo de gráfica */

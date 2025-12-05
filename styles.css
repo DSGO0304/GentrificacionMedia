@@ -719,3 +719,20 @@ body {
   font-weight: 600;
 }
 
+/* Ajuste uniforme para imágenes grandes de secciones */
+.media-img {
+  width: 100%;
+  max-width: 900px;
+  margin: 1.5rem auto;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+
+.media-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+

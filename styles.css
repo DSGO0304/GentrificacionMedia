@@ -736,3 +736,51 @@ body {
   object-fit: cover;
 }
 
+/* MINI FOTO – tamaño pequeño, no se recorta */
+.protest-photo-wrapper {
+  max-width: 450px;
+  margin: 1.5rem 0;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  background: #ffffff;
+  box-shadow: var(--shadow-soft);
+}
+
+.protest-photo-thumb {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;   /* evita recorte */
+  border-radius: 0.8rem;
+  cursor: zoom-in;
+  background: #f0f0f5;
+}
+
+.photo-caption {
+  margin-top: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* MODAL PARA VER EN GRANDE */
+.photo-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  padding: 40px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.85);
+  cursor: zoom-out;
+}
+
+.photo-modal-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 1rem;
+  box-shadow: 0 0 25px rgba(255,255,255,0.3);
+}
+
